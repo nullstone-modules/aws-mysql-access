@@ -1,0 +1,15 @@
+org_name: nullstone
+name: aws-mysql-access
+friendly_name: MySQL Access
+description: Grants an application access to a newly-created mysql database managed by AWS
+category: capability
+subcategory: datastores
+provider_types:
+    - aws
+platform: mysql
+subplatform: ""
+type: ""
+appCategories:
+    - container
+    - serverless
+is_public: true
