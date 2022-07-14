@@ -1,6 +1,10 @@
 output "env" {
   value = [
     {
+      name  = "MYSQL_HOST"
+      value = local.db_subdomain
+    },
+    {
       name  = "MYSQL_USER"
       value = local.username
     },
