@@ -8,8 +8,9 @@ provider_types:
     - aws
 platform: mysql
 subplatform: ""
-type: ""
+type: capability/mysql-access/aws
 appCategories:
     - container
     - serverless
+    - server
 is_public: true
