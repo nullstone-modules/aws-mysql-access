@@ -1,7 +1,7 @@
-org_name: nullstone
-name: aws-mysql-access
-friendly_name: MySQL Access
-description: Grants an application access to a newly-created mysql database managed by AWS
+org_name: Evolve
+name: aws-mysql-multiaccess
+friendly_name: MySQL Multi-Access
+description: Grants an application access to a primary mysql database as well as additional databases
 category: capability
 subcategory: datastores
 provider_types:

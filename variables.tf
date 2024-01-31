@@ -10,8 +10,21 @@ EOF
 
 variable "database_name" {
   type        = string
-  description = "Name of database to create in Mysql cluster"
+  description = <<EOF
+Name of database to create in the mysql cluster. If left blank, the name of the app will be used.
+If the database already exists, it will be reused.
+A new user will be created and granted owner permissions to the database schema.
+EOF
   default     = ""
+}
+
+variable "additional_database_names" {
+  type        = list(string)
+  description = <<EOF
+Additional databases to create in the mysql cluster. If any already exist, they will be reused.
+For each database, a new user will be created and granted owner permissions to the database schema.
+EOF
+  default     = []
 }
 
 locals {
