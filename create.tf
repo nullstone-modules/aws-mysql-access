@@ -39,6 +39,19 @@ data "aws_lambda_invocation" "create-db-access" {
   depends_on = [data.aws_lambda_invocation.create-user]
 }
 
+data "aws_lambda_invocation" "create-additional-databases" {
+  for_each = var.additional_database_names
+
+  function_name = local.db_admin_func_name
+
+  input = jsonencode({
+    type = "create-database"
+    metadata = {
+      databaseName = each.key
+    }
+  })
+}
+
 data "aws_lambda_invocation" "create-additional-access" {
   for_each = var.additional_database_names
 
@@ -51,4 +64,6 @@ data "aws_lambda_invocation" "create-additional-access" {
       username     = local.username
     }
   })
+
+  depends_on = [data.aws_lambda_invocation.create-additional-databases, data.aws_lambda_invocation.create-user]
 }
